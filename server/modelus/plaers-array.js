@@ -1,1 +1,1 @@
-module.exports = players = ['David', 'TJ', 'Spencer', 'Katie']
+module.exports = players = [{name: 'David'}, {name: 'TJ'}, {name: 'Spencer'}, {name: 'Katie'}]

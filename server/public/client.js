@@ -11,17 +11,30 @@ function onready() {
 
 function newplayerfunction() {
     let newplayer = $('#newPlayersNameInput').val();
-    console.log(newplayer)
+    console.log(newplayer);
+    $.ajax({
+        method: 'POST',
+        url: '/newplayers',
+        data: {name: newplayer}
+    }).then(function () {
+        $.ajax({
+            method: 'GET',
+            url: '/players'
+        }).then(playersAppend())
+    })
 } 
 
+
+
 function playersAppend() {
+    $('#unorderedlist').empty();
     $.ajax({
         method: 'GET',
         url: '/players'
     }).then(function (playerarray) {
         for (let i = 0; i < playerarray.length; i++) {
             $('#unorderedlist').append(`
-            <li>${playerarray[i]}</li>
+            <li>${playerarray[i].name}</li>
         `)
         }
     })
