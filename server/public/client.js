@@ -16,12 +16,7 @@ function newplayerfunction() {
         method: 'POST',
         url: '/newplayers',
         data: {name: newplayer}
-    }).then(function () {
-        $.ajax({
-            method: 'GET',
-            url: '/players'
-        }).then(playersAppend())
-    })
+    }).then(playersAppend () )
 } 
 
 
