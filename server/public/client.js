@@ -4,10 +4,50 @@ console.log('client ready')
 $(document).ready(onready);
 
 function onready() {
+    appendgamebord()
     console.log('jquery ready')
     playersAppend();
     $('#newPlayersButton').on('click',newplayerfunction);
+    $('#addGameButton').on('click', addGameButton)
 }
+
+function addGameButton() {
+    let playerValue = $('#playerScore').val();
+    let playerName = $('#playerName').val();
+    let opponentValue = $('#oppoenetScore').val();
+    let opponentName = $('#opponentName').val();
+    $.ajax({
+        method: 'POST',
+        url: '/newgame',
+        data: {playervalue: playerValue,
+        opponentvalue: opponentValue,
+        playername: playerName,
+        opponentName: opponentName,
+    }
+    }).then(appendgamebord())
+}
+
+function appendgamebord() {
+    $('#gameTable').empty();
+    $.ajax({
+        method: 'GET',
+        url: '/games'
+    }).then(function (gamerarray) {
+        console.log('in for function')
+        console.log(gamerarray);
+        for (let i=0; i<gamerarray.length; i++){
+            $('#gameTable').append(`
+            <tr>
+                <td>${gamerarray[i].playername}</td>
+                <td>${gamerarray[i].playervalue}</td>
+                <td>${gamerarray[i].opponentName}</td>
+                <td>${gamerarray[i].opponentvalue}</td>
+                <td>Katie</td>
+            </tr>
+            `)
+        }
+
+})}
 
 function newplayerfunction() {
     let newplayer = $('#newPlayersNameInput').val();
@@ -17,12 +57,6 @@ function newplayerfunction() {
         url: '/newplayers',
         data: {name: newplayer}
     }).then(playersAppend () )
-}
-
-function dropDownMenuPlayers(arrayobjects){
-
-
-    $('.playersNameOptions').append(`<option value = "">David</option>`)
 }
 
 function playersAppend() {

@@ -26,12 +26,12 @@
     </div>
     <h2>Games</h2>
     <div><span>
-        <span>Player: </span><select class="playersNameOptions">
+        <span>Player: </span><select class="playersNameOptions" id="playerName">
             <!-- <option value = "David">David</option>
             <option value = "Katie">Kaite</option> -->
         </select>
         
-        <span>versus Opponent: </span><select class="playersNameOptions"></select>
+        <span>versus Opponent: </span><select class="playersNameOptions" id="opponentName"></select>
         </span>
     </div>
     <div>
@@ -42,7 +42,26 @@
         <button id="addGameButton">Add Game</button>
     </div>
     <div>
-        
+        <table>
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th> Player Score</th>
+                    <th>Opponent Name</th>
+                    <th>Opponent Score</th>
+                    <th>Winner</th>
+                </tr>
+            </thead>
+            <tbody id ="gameTable">
+                <tr>
+                    <td>David</td>
+                    <td>23</td>
+                    <td>Katie</td>
+                    <td>42</td>
+                    <td>Katie</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
