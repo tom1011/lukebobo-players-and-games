@@ -8,7 +8,8 @@ function onready() {
     console.log('jquery ready')
     playersAppend();
     $('#newPlayersButton').on('click',newplayerfunction);
-    $('#addGameButton').on('click', addGameButton)
+    $('#addGameButton').on('click', addGameButton);
+    $('#clearGameHistory').on('click', clearGameData);
 }
 
 function addGameButton() {
@@ -56,7 +57,7 @@ function newplayerfunction() {
         method: 'POST',
         url: '/newplayers',
         data: {name: newplayer}
-    }).then(playersAppend () )
+    }).then(playersAppend())
 }
 
 function playersAppend() {
