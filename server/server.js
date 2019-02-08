@@ -24,7 +24,10 @@ app.post('/newplayers', function (req,res) {
 
 app.post('/newgame', function (req,res) {
     games.push(req.body);
-    console.log(req.body)
+    if (req.body.playervalue > req.body.opponentvalue){
+        {req.body.winner = req.body.playername}
+    };
+
     res.sendStatus(201);
 });
 

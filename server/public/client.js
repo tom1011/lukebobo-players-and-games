@@ -42,7 +42,7 @@ function appendgamebord() {
                 <td>${gamerarray[i].playervalue}</td>
                 <td>${gamerarray[i].opponentName}</td>
                 <td>${gamerarray[i].opponentvalue}</td>
-                <td>Katie</td>
+                <td>${gamerarray[i].winner}</td>
             </tr>
             `)
         }
