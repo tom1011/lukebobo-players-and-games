@@ -4,8 +4,6 @@ let PORT = 5000;
 let players = require('./modelus/plaers-array');
 let bodyParser = require('body-parser');
 
-
-
 app.use(express.static('server/public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
